@@ -26,10 +26,22 @@ class Faturamento extends Component {
               <table className="table">
                 <thead>
                   <tr>
-                    <td></td>
-                    <td></td>
+                    <th>Descricao</th>
+                    <th className="text-right">Valor</th>
                   </tr>
                 </thead>
+                <tbody>
+                  { this.state.detalhamento.map((item, indice) => {
+                    return(
+                      <tr key={indice}>
+                        <td>{item.descricao}</td>
+                        <td className="text-right">
+                        { item.valor.toLocaleString('pt-BR',  {style : 'currency', currency : "BRL"})}
+                        </td>
+                      </tr>
+                    )
+                  }) }
+                </tbody>
               </table>
             </div>
           </div>
